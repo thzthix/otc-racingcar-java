@@ -3,6 +3,7 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.Repository.CarRepository;
 import racingcar.Validation.CarNameErrorMessages;
 import racingcar.Validation.CarNameValidator;
 import racingcar.Validation.TrialsValidator;
@@ -14,9 +15,8 @@ public class Application {
         // TODO: 프로그램 구현
         InputView input = new InputView();
         String names = input.getCarNames();
-        List<String> nameList = Arrays.stream(names.split(",")).toList();
-        CarNameValidator validator = new CarNameValidator();
-        validator.validateCarName(nameList);
+        String[] nameList = names.split(",");
+        CarRepository r = new CarRepository(nameList);
         String trial = input.getTrials();
         TrialsValidator validator1 = new TrialsValidator();
         int trials = validator1.validateTrial(trial);
