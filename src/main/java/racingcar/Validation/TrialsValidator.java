@@ -19,9 +19,9 @@ public class TrialsValidator extends ValidatorAbstractClass {
 
     }
 
-    public int validateTrial(String input){
+    public int validateTrial(String input) {
         int parsedInput = isNumber(input);
-        if(!isPositive(parsedInput)){
+        if (!isPositive(parsedInput)) {
             throwValidationError(TrialsErrorMessages.INVALID_COUNT.getMessage());
         }
         return parsedInput;
