@@ -18,7 +18,6 @@ public class CarNameValidator {
 
 
     public static void validateCarName(String name) {
-
         if (!isCarNameLengthValid(name)) {
             throw new IllegalArgumentException(CarNameErrorMessages.LENGTH.getMessage());
         }

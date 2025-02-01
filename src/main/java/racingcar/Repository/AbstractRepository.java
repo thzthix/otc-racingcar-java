@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import racingcar.Model.CarModel;
 
-public abstract class Abstractrepository<T extends CarModel, ID> implements
+public abstract class AbstractRepository<T extends CarModel, ID> implements
     RepositoryInterface<T, ID> {
 
     Integer currentId = 0;
