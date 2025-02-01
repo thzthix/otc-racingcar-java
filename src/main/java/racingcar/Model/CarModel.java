@@ -15,6 +15,11 @@ public class CarModel implements CarInterface {
     private Integer id;
     final String name;
     int distance = 0;
+    static final int MIN_NUMBER = 0;
+    static final int MAX_NUMBER = 9;
+    static final int THRESHOLD = 4;
+    static final int MOVE_DISTANCE = 1;
+
 
     public CarModel(Integer id, String name) {
         CarNameValidator.validateCarName(name);
@@ -31,13 +36,13 @@ public class CarModel implements CarInterface {
     @Override
     public void move() {
         if (canMove()) {
-            this.distance += 1;
+            this.distance += MOVE_DISTANCE;
         }
     }
 
     @Override
     public boolean canMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) >= THRESHOLD;
     }
 
 
