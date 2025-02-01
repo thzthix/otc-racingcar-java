@@ -1,4 +1,4 @@
-package racingcar.View;
+package racingcar.View.Validation;
 
 import lombok.AccessLevel;
 import lombok.Getter;

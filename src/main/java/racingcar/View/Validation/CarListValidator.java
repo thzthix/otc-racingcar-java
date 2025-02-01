@@ -1,4 +1,4 @@
-package racingcar.View;
+package racingcar.View.Validation;
 
 import java.util.HashSet;
 import java.util.List;

@@ -2,7 +2,7 @@ package racingcar;
 
 
 import racingcar.Repository.CarRepository;
-import racingcar.View.TrialsValidator;
+import racingcar.Service.RoundPlayService;
 import racingcar.View.InputView;
 
 public class Application {
@@ -12,9 +12,10 @@ public class Application {
         InputView input = new InputView();
         String[] names = input.getCarNames();
         CarRepository r = new CarRepository(names);
-        int trial = input.getTrials();
-        System.out.println(trial);
-
+        //int trial = input.getTrials();
+        RoundPlayService roundPlayService  = new RoundPlayService(r);
+        roundPlayService.playRound();
+        System.out.println(roundPlayService.determineWinners());
         //System.out.println(nameList.get(1).length());
         //
 

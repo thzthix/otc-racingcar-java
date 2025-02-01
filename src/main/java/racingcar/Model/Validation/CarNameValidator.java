@@ -1,4 +1,4 @@
-package racingcar.Model;
+package racingcar.Model.Validation;
 
 import lombok.AccessLevel;
 import lombok.Getter;

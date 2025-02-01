@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.Model.Validation.CarNameValidator;
 
 @ToString
 @Getter
