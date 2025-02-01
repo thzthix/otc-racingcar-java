@@ -1,4 +1,4 @@
-package racingcar.Validation;
+package racingcar.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -8,7 +8,10 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public enum CarListErrorMessages {
-    DUPLICATED("중복된 이름이 없어야 합니다"),CAR_NAME_NOT_PROVIDED("1개 이상의 이름을 입력해주세요");
+public enum CarNameErrorMessages {
+    LENGTH("자동차의 이름은 1자 이상 5자 이하여야 합니다"), DEFAULT_ERROR("유효하지 않은 입력입니다");
+
+
     String message;
+
 }

@@ -5,16 +5,20 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
+    private final String DELIMITER = ",";
 
-    public String getCarNames() {
+    public String[] getCarNames() {
         System.out.println(InputPrompts.NAME);
-        return Console.readLine();
+        String[] carNamesInArray = Console.readLine().split(DELIMITER);
+        CarListValidator.validateCarNames(carNamesInArray);
+        return carNamesInArray;
 
     }
 
-    public String getTrials() {
+    public int getTrials() {
         System.out.println(InputPrompts.TRIAL);
-        return Console.readLine();
+        String trialInput = Console.readLine();
+        return TrialsValidator.validateTrial(trialInput);
 
     }
 }

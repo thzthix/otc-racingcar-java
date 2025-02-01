@@ -1,22 +1,20 @@
 package racingcar.Repository;
 
 
-import java.io.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import lombok.NoArgsConstructor;
 import racingcar.Model.CarModel;
-import racingcar.Validation.CarListValidator;
+import racingcar.View.CarListValidator;
 
 @NoArgsConstructor
 public class CarRepository extends Abstractrepository<CarModel, Integer> {
 
-    public CarRepository(String[] carNames){
-        CarListValidator carListValidator = new CarListValidator(carNames);
-        carListValidator.validateCarNames();
-        Arrays.stream(carNames).forEach((carName)->create(new CarModel(null, carName)));
-        System.out.println("values"+dataMap.values());
+    public CarRepository(String[] carNames) {
+        CarListValidator.validateCarNames(carNames);
+        Arrays.stream(carNames).forEach((carName) -> create(new CarModel(null, carName)));
+        System.out.println("values" + dataMap.values());
 
     }
 
