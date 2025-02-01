@@ -10,10 +10,10 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum OutputPrompts {
     MOVEMENT_SYMBOL("-"),
-    COLON_SEPERATOR(":"),
+    COLON_SEPARATOR(":"),
     ROUND_RESULT("실행 결과"),
     WINNER("최종 우승자 :"),
-    WINNER_SEPERATOR(",");
+    WINNER_SEPARATOR(",");
 
     String message;
 }

@@ -1,10 +1,10 @@
 package racingcar.Model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.Validation.CarNameValidator;
 
 @ToString
@@ -20,7 +20,6 @@ public class CarModel implements CarInterface {
     static final int THRESHOLD = 4;
     static final int MOVE_DISTANCE = 1;
 
-
     public CarModel(Integer id, String name) {
         CarNameValidator.validateCarName(name);
         this.id = id;
@@ -31,7 +30,6 @@ public class CarModel implements CarInterface {
     public void updateId(Integer id) {
         this.id = id;
     }
-
 
     @Override
     public void move() {
@@ -44,6 +42,4 @@ public class CarModel implements CarInterface {
     public boolean canMove() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) >= THRESHOLD;
     }
-
-
 }

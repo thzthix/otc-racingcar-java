@@ -19,13 +19,13 @@ public class OutputView {
     public String makeRoundResultMessage(CarModel car) {
         String movementsSymbols = OutputPrompts.MOVEMENT_SYMBOL.getMessage()
             .repeat(car.getDistance());
-        return String.format("%s %s %s", car.getName(), OutputPrompts.COLON_SEPERATOR.getMessage(),
+        return String.format("%s %s %s", car.getName(), OutputPrompts.COLON_SEPARATOR.getMessage(),
             movementsSymbols);
     }
 
     public String makeWinnerResultMessage(List<String> winners) {
         String winnersToString = winners.stream()
-            .collect(Collectors.joining(OutputPrompts.WINNER_SEPERATOR.getMessage()));
+            .collect(Collectors.joining(OutputPrompts.WINNER_SEPARATOR.getMessage()));
         return String.format("%s %s", OutputPrompts.WINNER.getMessage(), winnersToString);
     }
 
@@ -33,6 +33,4 @@ public class OutputView {
         String winnerResultMessage = makeWinnerResultMessage(winners);
         System.out.println(winnerResultMessage);
     }
-
-
 }

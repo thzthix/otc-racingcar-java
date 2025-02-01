@@ -13,6 +13,4 @@ public abstract class AbstractRepository<T extends CarModel, ID> implements
     Integer IdGenerator() {
         return currentId += 1;
     }
-
-
 }

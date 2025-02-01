@@ -1,7 +1,5 @@
 package racingcar.View.Validation;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,7 +15,7 @@ public class CarListValidator {
         return carNames.isEmpty();
     }
 
-    private static boolean hasEmptyName(String carNames,String[] splitCarNames) {
+    private static boolean hasEmptyName(String carNames, String[] splitCarNames) {
 
         int numberOfDelimiter = carNames.length() - carNames.replace(delimiter, "").length();
         return splitCarNames.length != numberOfDelimiter + 1;
@@ -27,7 +25,6 @@ public class CarListValidator {
 
         Set<String> carNamesSet = new HashSet<>(List.of(carNames));
         return carNamesSet.size() == carNames.length;
-
     }
 
     public static void validateCarNames(String carNames) {
@@ -36,7 +33,7 @@ public class CarListValidator {
                 CarListErrorMessages.CAR_NAME_NOT_PROVIDED.getMessage());
         }
         String[] splitCarNames = carNames.split(delimiter);
-        if (hasEmptyName(carNames,splitCarNames)) {
+        if (hasEmptyName(carNames, splitCarNames)) {
             throw new IllegalArgumentException(CarListErrorMessages.HAS_EMPTY_NAME.getMessage());
         }
         if (!namesAreUnique(splitCarNames)) {

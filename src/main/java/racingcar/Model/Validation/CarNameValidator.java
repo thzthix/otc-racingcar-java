@@ -16,12 +16,9 @@ public class CarNameValidator {
         return !name.isEmpty() && name.length() <= MAX_NAME_LENGTH;
     }
 
-
     public static void validateCarName(String name) {
         if (!isCarNameLengthValid(name)) {
             throw new IllegalArgumentException(CarNameErrorMessages.LENGTH.getMessage());
         }
-
-
     }
 }

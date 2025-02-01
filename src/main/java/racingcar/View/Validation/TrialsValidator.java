@@ -9,13 +9,10 @@ public class TrialsValidator {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(TrialsErrorMessages.INVALID_COUNT.getMessage());
         }
-
-
     }
 
     private static boolean isPositive(int trial) {
         return trial > 0;
-
     }
 
     public static int validateTrial(String input) {

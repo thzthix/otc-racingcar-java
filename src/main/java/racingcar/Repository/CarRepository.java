@@ -12,7 +12,6 @@ public class CarRepository extends AbstractRepository<CarModel, Integer> {
 
     public CarRepository(String[] carNames) {
         Arrays.stream(carNames).forEach((carName) -> create(new CarModel(null, carName)));
-
     }
 
     @Override
