@@ -12,7 +12,6 @@ import racingcar.View.CarListValidator;
 public class CarRepository extends Abstractrepository<CarModel, Integer> {
 
     public CarRepository(String[] carNames) {
-        CarListValidator.validateCarNames(carNames);
         Arrays.stream(carNames).forEach((carName) -> create(new CarModel(null, carName)));
         System.out.println("values" + dataMap.values());
 
