@@ -2,19 +2,20 @@ package racingcar.Service;
 
 import java.util.Collections;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
 import racingcar.Model.CarModel;
 import racingcar.Repository.CarRepository;
-@RequiredArgsConstructor
+
 public class RoundPlayService {
 
-    private final CarRepository carRepository;
+    private CarRepository carRepository ;
+    public void initiateRepository(String[] carNames){
+        this.carRepository = new CarRepository(carNames);
+    }
 
     public void playRound() {
         List<CarModel> currentCars = carRepository.readAll();
         currentCars.forEach(CarModel::move);
-        currentCars.forEach(carModel -> carRepository.update(carModel.getId(), carModel));
-        currentCars.forEach((car)->System.out.println(car.getDistance()));
+        currentCars.forEach(car -> carRepository.update(car.getId(), car));
     }
 
     public List<String> determineWinners() {
