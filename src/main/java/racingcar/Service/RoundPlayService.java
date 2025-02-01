@@ -7,19 +7,24 @@ import racingcar.Repository.CarRepository;
 
 public class RoundPlayService {
 
-    private CarRepository carRepository ;
-    public void initiateRepository(String[] carNames){
+    private CarRepository carRepository;
+
+    public void initiateRepository(String[] carNames) {
         this.carRepository = new CarRepository(carNames);
     }
 
+    public List<CarModel> getCurrentCars() {
+        return carRepository.readAll();
+    }
+
     public void playRound() {
-        List<CarModel> currentCars = carRepository.readAll();
+        List<CarModel> currentCars = getCurrentCars();
         currentCars.forEach(CarModel::move);
         currentCars.forEach(car -> carRepository.update(car.getId(), car));
     }
 
     public List<String> determineWinners() {
-        List<CarModel> currentCars = carRepository.readAll();
+        List<CarModel> currentCars = getCurrentCars();
         List<Integer> currentDistance = currentCars.stream().map(CarModel::getDistance).toList();
         int maxDistance = Collections.max(currentDistance);
         return currentCars.stream().filter(car -> car.getDistance() == maxDistance)

@@ -2,6 +2,7 @@ package racingcar.Controller;
 
 
 import java.util.List;
+import racingcar.Model.CarModel;
 import racingcar.Service.RoundPlayService;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
@@ -25,8 +26,11 @@ public class GameController {
     }
 
     public void playRounds(int trials) {
+        outputView.printRoundResultsHeader();
         for (int round = 0; round < trials; round++) {
             roundPlayService.playRound();
+            List<CarModel> currentCars = roundPlayService.getCurrentCars();
+            outputView.printRoundResults(currentCars);
         }
     }
 

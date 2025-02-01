@@ -11,7 +11,8 @@ import lombok.experimental.FieldDefaults;
 public enum OutputPrompts {
     MOVEMENT_SYMBOL("-"),
     COLON_SEPERATOR(":"),
-    WINNER("최종 우승자: "),
+    ROUND_RESULT("실행 결과"),
+    WINNER("최종 우승자 :"),
     WINNER_SEPERATOR(",");
 
     String message;

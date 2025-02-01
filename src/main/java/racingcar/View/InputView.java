@@ -7,18 +7,17 @@ import racingcar.View.Validation.TrialsValidator;
 
 public class InputView {
 
-    private final String DELIMITER = ",";
 
     public String[] getCarNames() {
-        System.out.println(InputPrompts.NAME);
-        String[] carNamesInArray = Console.readLine().split(DELIMITER);
+        System.out.println(InputPrompts.NAME.getMessage());
+        String[] carNamesInArray = Console.readLine().split(InputPrompts.DELIMITER.getMessage());
         CarListValidator.validateCarNames(carNamesInArray);
         return carNamesInArray;
 
     }
 
     public int getTrials() {
-        System.out.println(InputPrompts.TRIAL);
+        System.out.println(InputPrompts.TRIAL.getMessage());
         String trialInput = Console.readLine();
         return TrialsValidator.validateTrial(trialInput);
 
