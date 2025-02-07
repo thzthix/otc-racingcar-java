@@ -20,9 +20,10 @@ public class CarModel implements CarInterface {
     static final int THRESHOLD = 4;
     static final int MOVE_DISTANCE = 1;
 
-    public CarModel(Integer id, String name) {
+    // 유저 ID 처럼 쓰고싶다면 자동증가로 하세요. 굳이 비지니스 요구사항에 없었으니 지워도됩니다.
+    public CarModel(String name) {
         CarNameValidator.validateCarName(name);
-        this.id = id;
+//        this.id = id;
         this.name = name;
 
     }

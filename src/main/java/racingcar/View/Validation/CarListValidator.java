@@ -9,11 +9,7 @@ import racingcar.View.InputPrompts;
 @RequiredArgsConstructor
 public class CarListValidator {
 
-    private static final String delimiter = InputPrompts.DELIMITER.getMessage();
-
-    private static boolean isCarNamesEmpty(String carNames) {
-        return carNames.isEmpty();
-    }
+    private static final char DELIMITER = ',';
 
     private static boolean hasEmptyName(String carNames, String[] splitCarNames) {
 
@@ -28,9 +24,8 @@ public class CarListValidator {
     }
 
     public static void validateCarNames(String carNames) {
-        if (isCarNamesEmpty(carNames)) {
-            throw new IllegalArgumentException(
-                CarListErrorMessages.CAR_NAME_NOT_PROVIDED.getMessage());
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException(CarListErrorMessages.CAR_NAME_NOT_PROVIDED.getMessage());
         }
         String[] splitCarNames = carNames.split(delimiter);
         if (hasEmptyName(carNames, splitCarNames)) {
@@ -39,7 +34,6 @@ public class CarListValidator {
         if (!namesAreUnique(splitCarNames)) {
             throw new IllegalArgumentException(CarListErrorMessages.DUPLICATED.getMessage());
         }
-
     }
 
 

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Model.CarModel;
 
-public class OutputView {
+public class OutputView implements IOutputView {
 
     public void printRoundResultsHeader() {
         System.out.println(OutputPrompts.ROUND_RESULT.getMessage());
@@ -16,20 +16,20 @@ public class OutputView {
         System.out.println();
     }
 
-    public String makeRoundResultMessage(CarModel car) {
+    private String makeRoundResultMessage(CarModel car) {
         String movementsSymbols = OutputPrompts.MOVEMENT_SYMBOL.getMessage()
             .repeat(car.getDistance());
         return String.format("%s %s %s", car.getName(), OutputPrompts.COLON_SEPARATOR.getMessage(),
             movementsSymbols);
     }
 
-    public String makeWinnerResultMessage(List<String> winners) {
+    private String makeWinnerResultMessage(List<String> winners) {
         String winnersToString = winners.stream()
             .collect(Collectors.joining(OutputPrompts.WINNER_SEPARATOR.getMessage()));
         return String.format("%s %s", OutputPrompts.WINNER.getMessage(), winnersToString);
     }
 
-    public void displayWinners(List<String> winners) {
+    public void printWinners(List<String> winners) {
         String winnerResultMessage = makeWinnerResultMessage(winners);
         System.out.println(winnerResultMessage);
     }
